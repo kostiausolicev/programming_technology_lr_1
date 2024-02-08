@@ -6,6 +6,7 @@ data class OrderModel(
     val options: List<String>? = null
 ) {
     companion object {
+        @JvmStatic
         private var staticId = 0;
     }
 }

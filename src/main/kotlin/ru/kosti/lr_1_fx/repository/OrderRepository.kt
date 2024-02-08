@@ -3,9 +3,7 @@ package ru.kosti.lr_1_fx.repository
 import ru.kosti.lr_1_fx.model.OrderModel
 import ru.kosti.lr_1_fx.model.OrderRequest
 
-class OrderRepository(
-    val orders: HashMap<Int, OrderModel> = HashMap(),
-) {
+class OrderRepository {
     fun getById(id: Int) =
         orders[id]
 
@@ -24,4 +22,9 @@ class OrderRepository(
             item = this.item,
             options = this.options
         )
+
+    companion object {
+        @JvmStatic
+        val orders: HashMap<Int, OrderModel> = HashMap()
+    }
 }
