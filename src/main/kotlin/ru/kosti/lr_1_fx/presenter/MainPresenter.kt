@@ -3,6 +3,7 @@ package ru.kosti.lr_1_fx.presenter
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.*
+import ru.kosti.lr_1_fx.model.OrderRequest
 import ru.kosti.lr_1_fx.repository.FoodRepository
 import ru.kosti.lr_1_fx.repository.OrderRepository
 
@@ -63,11 +64,34 @@ class MainPresenter {
 
     @FXML
     fun clickOrderButton(actionEvent: ActionEvent) {
-
+        val foodItem = selectFoodComboBox
+            .value
+            ?.let { foodRepository.getByName(it) }
+            ?: return
+        val options = listOfNotNull(
+            if (extraSauce.isSelected) "extra sauce" else null,
+            if (withoutCucumbers.isSelected) "without cucumbers" else null,
+            if (withoutTomatoes.isSelected) "without tomatoes" else null,
+        )
+        val price = priceLabel.text.split(' ')[1].toInt()
+        val order = OrderRequest(
+            item = foodItem,
+            price = price,
+            options = options
+        ).let { orderRepository.create(it) }
+        ordersListView.items.add(order.toString())
     }
 
     @FXML
-    fun showOrderButtonClick(actionEvent: ActionEvent) {
+    fun showOrderButtonClick(actionEvent: ActionEvent) =
+        orderRepository.getById(orderIdTextField.text.toInt())?.run {
+            orderPriceLabel.text = "Price: $price"
+            compositionOrderLabel.text = "Composition: ${item.composition}"
+            foodNameLabel.text = "Food name: ${item.name}"
+        }
+
+    @FXML
+    fun completeOrderButtonClick(actionEvent: ActionEvent) {
 
     }
 

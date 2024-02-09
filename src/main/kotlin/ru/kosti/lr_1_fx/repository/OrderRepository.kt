@@ -7,12 +7,9 @@ class OrderRepository {
     fun getById(id: Int) =
         orders[id]
 
-    fun getAll() =
-        orders.values.map { it }
-
-    fun crete(order: OrderRequest) =
+    fun create(order: OrderRequest) =
         order.toModel()
-            .let { orders.put(it.id, it) }
+            .also { orders[it.id] = it }
 
     fun delete(id: Int) =
         orders.remove(id)
@@ -20,6 +17,7 @@ class OrderRepository {
     private fun OrderRequest.toModel() =
         OrderModel(
             item = this.item,
+            price = this.price,
             options = this.options
         )
 

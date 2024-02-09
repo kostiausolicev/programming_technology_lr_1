@@ -41,7 +41,7 @@
             <Label fx:id="foodNameLabel" style="-fx-padding: 5;" text="Food name:" />
             <Label fx:id="compositionOrderLabel" style="-fx-padding: 5;" text="Composition: " />
             <Label fx:id="orderPriceLabel" style="-fx-padding: 5;" text="Price" />
-            <Button mnemonicParsing="false" style="-fx-padding: 5;" text="Complete the order" />
+            <Button onAction="#completeOrderButtonClick" mnemonicParsing="false" style="-fx-padding: 5;" text="Complete the order" />
         </VBox>
     </HBox>
 </VBox>

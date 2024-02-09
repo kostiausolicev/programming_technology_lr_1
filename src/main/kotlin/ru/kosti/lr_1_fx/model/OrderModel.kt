@@ -6,6 +6,9 @@ data class OrderModel(
     val item: FoodModel,
     val options: List<String>? = null
 ) {
+    override fun toString(): String =
+        "Id: $id Name: ${item.name} Price: $price"
+
     companion object {
         @JvmStatic
         private var staticId = 0;
