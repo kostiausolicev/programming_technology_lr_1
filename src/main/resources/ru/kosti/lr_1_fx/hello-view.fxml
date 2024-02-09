@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="210.0" prefWidth="548.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kosti.lr_1_fx.presenter.HelloController">
+<VBox alignment="CENTER" prefHeight="210.0" prefWidth="548.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -13,22 +13,45 @@
          <children>
             <VBox id="createOrderBox" prefHeight="223.0" prefWidth="152.0">
                <children>
-                  <ComboBox id="selectFoodCobobox" prefWidth="150.0" promptText="Select food" />
-                  <CheckBox id="extraSauce" mnemonicParsing="false" text="Extra sauce" />
-                  <CheckBox id="withoutCucumbers" mnemonicParsing="false" text="Without cucumbers" />
-                  <CheckBox id="withoutTomatos" mnemonicParsing="false" text="Without tomatos" />
-                  <Label id="priceLable" text="Price: " />
+                  <ComboBox id="selectFoodCobobox" prefWidth="150.0" promptText="Select food" style="-fx-padding: 5;" />
+                  <CheckBox id="extraSauce" mnemonicParsing="false" style="-fx-padding: 5;" text="Extra sauce" />
+                  <CheckBox id="withoutCucumbers" mnemonicParsing="false" style="-fx-padding: 5;" text="Without cucumbers" />
+                  <CheckBox id="withoutTomatos" mnemonicParsing="false" style="-fx-padding: 5;" text="Without tomatos" />
+                  <Label id="priceLable" style="-fx-padding: 5;" text="Price: " />
                </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </VBox>
-            <VBox id="showOrderBox" prefHeight="223.0" prefWidth="204.0" />
+            <VBox id="showOrderBox" prefHeight="223.0" prefWidth="204.0">
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <bottom>
+                        <SplitPane dividerPositions="0.7470355731225297" prefHeight="32.0" prefWidth="204.0" BorderPane.alignment="CENTER">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-padding: 5;">
+                                 <children>
+                                    <TextField layoutY="-2.0" prefHeight="35.0" prefWidth="150.0" promptText="Enter the order id" />
+                                 </children></AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <Button layoutX="-6.0" layoutY="-3.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="62.0" text="OK" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </bottom>
+                     <center>
+                        <ListView prefHeight="200.0" prefWidth="200.0" style="-fx-padding: 5;" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+               </children></VBox>
             <VBox id="showOrderDetailsBox" prefHeight="223.0" prefWidth="151.0">
                <children>
-                  <Label id="foodName" text="Food name:" />
-                  <Label text="Composition: " />
-                  <Label text="Price" />
+                  <Label id="foodNameLabel" style="-fx-padding: 5;" text="Food name:" />
+                  <Label id="compositionOrderLabel" style="-fx-padding: 5;" text="Composition: " />
+                  <Label id="orderPriceLabel" style="-fx-padding: 5;" text="Price" />
+                  <Button mnemonicParsing="false" style="-fx-padding: 5;" text="Complete the order" />
                </children></VBox>
          </children>
       </HBox>
