@@ -4,44 +4,56 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="210.0" prefWidth="548.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kosti.lr_1_fx.presenter.MainPresenter">
+<VBox alignment="CENTER" prefHeight="210.0" prefWidth="548.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kosti.lr_1_fx.presenter.MainPresenter">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
     <HBox prefHeight="223.0" prefWidth="548.0">
         <VBox id="createOrderBox" prefHeight="223.0" prefWidth="152.0">
             <opaqueInsets>
-                <Insets />
+                <Insets/>
             </opaqueInsets>
-            <ComboBox fx:id="selectFoodComboBox" onAction="#selectedFoodItem" prefWidth="150.0" promptText="Select food" style="-fx-padding: 5;" />
-            <CheckBox fx:id="extraSauce" mnemonicParsing="false" onAction="#selectedSauce" style="-fx-padding: 5;" text="Extra sauce" />
-            <CheckBox fx:id="withoutCucumbers" mnemonicParsing="false" style="-fx-padding: 5;" text="Without cucumbers" />
-            <CheckBox fx:id="withoutTomatoes" mnemonicParsing="false" style="-fx-padding: 5;" text="Without tomatoes" />
-            <Label fx:id="priceLabel" style="-fx-padding: 5;" text="Price: 0" />
-            <Button id="orderButton" mnemonicParsing="false" onAction="#clickOrderButton" style="-fx-padding: 5;" text="Order" />
+            <ComboBox fx:id="selectFoodComboBox" onAction="#selectedFoodItem" prefWidth="150.0" promptText="Select food"
+                      style="-fx-padding: 5;"/>
+            <CheckBox fx:id="extraSauce" mnemonicParsing="false" onAction="#selectedSauce" style="-fx-padding: 5;"
+                      text="Extra sauce"/>
+            <CheckBox fx:id="withoutCucumbers" mnemonicParsing="false" style="-fx-padding: 5;"
+                      text="Without cucumbers"/>
+            <CheckBox fx:id="withoutTomatoes" mnemonicParsing="false" style="-fx-padding: 5;" text="Without tomatoes"/>
+            <Label fx:id="priceLabel" style="-fx-padding: 5;" text="Price: 0"/>
+            <Button id="orderButton" mnemonicParsing="false" onAction="#clickOrderButton" style="-fx-padding: 5;"
+                    text="Order"/>
         </VBox>
         <VBox id="showOrderBox" prefHeight="223.0" prefWidth="204.0">
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                 <bottom>
-                    <SplitPane dividerPositions="0.7470355731225297" prefHeight="32.0" prefWidth="204.0" BorderPane.alignment="CENTER">
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-padding: 5;">
-                            <TextField fx:id="orderIdTextField" layoutY="-2.0" prefHeight="35.0" prefWidth="150.0" promptText="Enter the order id" />
+                    <SplitPane dividerPositions="0.7470355731225297" prefHeight="32.0" prefWidth="204.0"
+                               BorderPane.alignment="CENTER">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0"
+                                    style="-fx-padding: 5;">
+                            <TextField fx:id="orderIdTextField" layoutY="-2.0" prefHeight="35.0" prefWidth="150.0"
+                                       promptText="Enter the order id"/>
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                            <Button layoutX="-6.0" layoutY="-3.0" mnemonicParsing="false" onAction="#showOrderButtonClick" prefHeight="38.0" prefWidth="62.0" text="OK" />
+                            <Button layoutX="-6.0" layoutY="-3.0" mnemonicParsing="false"
+                                    onAction="#showOrderButtonClick" prefHeight="38.0" prefWidth="62.0" text="OK"/>
                         </AnchorPane>
                     </SplitPane>
                 </bottom>
                 <center>
-                    <ListView fx:id="ordersListView" prefHeight="200.0" prefWidth="200.0" style="-fx-padding: 5;" BorderPane.alignment="CENTER" />
+                    <ListView fx:id="ordersListView" prefHeight="200.0" prefWidth="200.0" style="-fx-padding: 5;"
+                              BorderPane.alignment="CENTER"/>
                 </center>
             </BorderPane>
         </VBox>
         <VBox id="showOrderDetailsBox" prefHeight="223.0" prefWidth="151.0">
-            <Label fx:id="foodNameLabel" style="-fx-padding: 5;" text="Food name:" />
-            <Label fx:id="compositionOrderLabel" style="-fx-padding: 5;" text="Composition: " />
-            <Label fx:id="orderPriceLabel" style="-fx-padding: 5;" text="Price" />
-            <Button onAction="#completeOrderButtonClick" mnemonicParsing="false" style="-fx-padding: 5;" text="Complete the order" />
+            <Label fx:id="orderIdLabel" style="-fx-padding: 5;" text="Order id:"/>
+            <Label fx:id="foodNameLabel" style="-fx-padding: 5;" text="Food name:"/>
+            <Label fx:id="compositionOrderLabel" style="-fx-padding: 5;" text="Composition: "/>
+            <Label fx:id="orderPriceLabel" style="-fx-padding: 5;" text="Price"/>
+            <Button mnemonicParsing="false" onAction="#completeOrderButtonClick" style="-fx-padding: 5;"
+                    text="Complete the order"/>
         </VBox>
     </HBox>
 </VBox>

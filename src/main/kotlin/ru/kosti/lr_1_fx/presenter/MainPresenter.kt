@@ -3,11 +3,14 @@ package ru.kosti.lr_1_fx.presenter
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.*
+import ru.kosti.lr_1_fx.model.OrderModel
 import ru.kosti.lr_1_fx.model.OrderRequest
 import ru.kosti.lr_1_fx.repository.FoodRepository
 import ru.kosti.lr_1_fx.repository.OrderRepository
+import kotlin.time.measureTime
 
 class MainPresenter {
+
     // Show orders
     @FXML
     lateinit var ordersListView: ListView<String>
@@ -16,6 +19,9 @@ class MainPresenter {
     lateinit var orderIdTextField: TextField
 
     // Complete order
+    @FXML
+    lateinit var orderIdLabel: Label
+
     @FXML
     lateinit var orderPriceLabel: Label
 
@@ -85,6 +91,7 @@ class MainPresenter {
     @FXML
     fun showOrderButtonClick(actionEvent: ActionEvent) =
         orderRepository.getById(orderIdTextField.text.toInt())?.run {
+            orderIdLabel.text = "Order id: $id"
             orderPriceLabel.text = "Price: $price"
             compositionOrderLabel.text = "Composition: ${item.composition}"
             foodNameLabel.text = "Food name: ${item.name}"
@@ -92,8 +99,21 @@ class MainPresenter {
 
     @FXML
     fun completeOrderButtonClick(actionEvent: ActionEvent) {
-
+        val id = orderIdLabel.text
+            .split(' ')
+            .getOrNull(2)
+            ?.toIntOrNull()
+            ?: return
+        orderRepository.getById(id)?.run {
+            orderIdLabel.text = "Order id: "
+            orderPriceLabel.text = "Price: "
+            compositionOrderLabel.text = "Composition: "
+            foodNameLabel.text = "Food name: "
+            ordersListView.items.remove(toString())
+            orderRepository.delete(id)
+        }
     }
+
 
     companion object {
         @JvmStatic
