@@ -3,11 +3,9 @@ package ru.kosti.lr_1_fx.presenter
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.*
-import ru.kosti.lr_1_fx.model.OrderModel
 import ru.kosti.lr_1_fx.model.OrderRequest
 import ru.kosti.lr_1_fx.repository.FoodRepository
 import ru.kosti.lr_1_fx.repository.OrderRepository
-import kotlin.time.measureTime
 
 class MainPresenter {
 
