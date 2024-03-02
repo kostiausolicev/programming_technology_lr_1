@@ -10,7 +10,7 @@ import ru.kosti.lr_1_fx.repository.FoodRepository
 
 class Lr1Application : Application() {
     override fun start(stage: Stage) {
-        val fxmlLoader = FXMLLoader(Lr1Application::class.java.getResource("order-view.fxml"))
+        val fxmlLoader = FXMLLoader(Lr1Application::class.java.getResource("main-view.fxml"))
         val scene = Scene(fxmlLoader.load(), 500.0, 240.0)
         val combobox = scene.lookup("#selectFoodComboBox") as ComboBox<String>
         initFoods()
